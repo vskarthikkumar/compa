@@ -2397,7 +2397,7 @@ ul.cardMenu li a:hover, ul.cardMenu li.active a{color:#c00 !important; }
 .comparecards .notice-flyouthidden .ui-link{display:inline-block; }
 .comparecards .notice i{margin-right:20px; float:left; margin-top:5px; }
 .comparecards .heading-compare{font-size:18px; font-weight:100; color:#666363; padding-bottom:0px; margin-top:10px; }
-.comparecards .subheading-compare{font-size:13px; font-weight:100; color:#666363; padding-bottom:0px; border-bottom:0; margin-bottom:10px; }
+.comparecards .subheading-compare{font-size:13px; font-weight:100; color:#666363; padding-bottom:0px; border-bottom:0; }
 .btn-remove{position:relative !important; bottom:0px !important; padding:0px !important; right:0px !important; }
 .icon_cross-gray.icon_cross-gray{background-position:-233px -290px; width:12px; height:12px; }
 .min-height40{min-height:40px; }

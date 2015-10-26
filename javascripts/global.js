@@ -5355,12 +5355,12 @@ table_data_remove[position] =            ' <div class="span3 subheading-compare"
 						}
 						} 
 					}
-					var tempff_heading_hiddenphone="";
-                    var tempff_image="";
-                    var tempff_heading_visiblephone="";
-                    var tempff_applylink="";
-                    var tempff_applyibanking="";
-                    var tempff_remove="";
+					var tempff_heading_hiddenphone='';
+                    var tempff_image='<div class="span3 heading-compare hidden-phone"></div>';
+                    var tempff_heading_visiblephone='<div class="span3 heading-compare hidden-phone"></div>';
+                    var tempff_applylink='<div class="span3 heading-compare hidden-phone"></div>';
+                    var tempff_applyibanking='<div class="span3 heading-compare hidden-phone"></div>';
+                    var tempff_remove='<div class="span3 heading-compare hidden-phone"></div>';
                   
 
 					if(present_count>0)
@@ -5402,7 +5402,7 @@ if(typeof(table_data_remove[pos])=="undefined"||(table_data_remove[pos]==""))
  
 
 						}
-                              tempff_heading_hiddenphone='<div class="row-fluid">'+tempff_heading_hiddenphone+'</div>';
+                              tempff_heading_hiddenphone=''+tempff_heading_hiddenphone+'</div>';
                               tempff_image='<div class="row-fluid">'+tempff_image+'</div>';
                               tempff_heading_visiblephone='<div class="row-fluid fixedheading">'+tempff_heading_visiblephone+'</div>';
                               tempff_applylink='<div class="row-fluid">'+tempff_applylink+'</div>';
@@ -5412,7 +5412,7 @@ if(typeof(table_data_remove[pos])=="undefined"||(table_data_remove[pos]==""))
                       console.log("a->"+tempff_heading_visiblephone);
                       console.log("a->"+tempff_image);
                            
-					 table_data =table_data_label+tempff_heading_hiddenphone+tempff_image+tempff_heading_visiblephone+tempff_applylink+tempff_applyibanking+tempff_remove;
+					 table_data ='<div class="row-fluid">'+table_data_label+tempff_heading_hiddenphone+tempff_image+tempff_remove+tempff_heading_visiblephone+tempff_applylink+tempff_applyibanking;
 }
 					table_data +='<div class="dottedline insertcard2"></div>';
 //console.log(table_data);
@@ -5622,8 +5622,12 @@ tablelayout[z]+='</ul></div>';
 					 
 
 
-							table_data += temp1+ '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff+'</div>' +'<div class="dottedline insertcard2"></div>';
-							if(temp1!=""){
+							table_data += temp1+ '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff+'</div>' ;
+							
+
+
+
+                            if(temp1!=""){
 
 
 							}
@@ -5631,7 +5635,12 @@ tablelayout[z]+='</ul></div>';
 						//console.log("i->"+i);
 					//console.log("table->"+table_data1);
 					}  
-					
+
+
+table_data +='<div class="row-fluid visible-phone">&nbsp;</div>';
+					table_data +='<div class="row-fluid visible-phone">'+tempff_applylink+'</div>';
+    table_data +='<div class="row-fluid visible-phone">'+tempff_applyibanking+'</div>';   
+    table_data +='<div class="dottedline insertcard2"></div>';
 						/*for (var z=0;z<temp.moredetails.length;z++) {
 						 
 					 if(typeof(temp.moredetails[z].card_id)!="undefined"){
