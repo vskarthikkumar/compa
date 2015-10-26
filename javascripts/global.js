@@ -5134,14 +5134,18 @@ $('#comparenav').on('click', "li:not(.active)", function() { console.log('abc383
 });
  
 var selected_card = [];
+
 $( "body").on("click","#mobile_compare" , function(e) {
     displayCompareCards();  
+var comparebuttonhtml=$('.comparebutton').html(); 
+ 
+    var cardItems=$('.fixedheading').find(".span3").length; 
     var title='<div class="row-fluid fixedheading">'+$('.fixedheading').html()+'</div>'; 
      $(window).on("scroll",function(){
  nav =  $('.comparebutton'); 
- if ($(window).scrollTop() >= 600) { 
-    if($('.comparebutton').find($('.fixedheading')).length==0)
-    { $('.comparebutton').append(title);$('.comparecards .fixedheading').html("");}
+ if ($(window).scrollTop() >= 600) {  
+    if($('.comparebutton').find($('.fixedheading')).length<cardItems)
+    { $('.comparebutton').html("");$('.comparebutton').append(comparebuttonhtml).append(title);$('.comparecards .fixedheading').html("");}
 
        $(nav).addClass('fixed'); 
     }
