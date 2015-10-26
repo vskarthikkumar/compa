@@ -26196,7 +26196,7 @@ p.text-center{text-align:center; }
 
 .comparebutton.fixed{position:fixed;top:0;z-index: 1000;width: 93.55%;}
 
-.comparebutton .fixedheading{background: #fff;}
+.comparebutton .fixedheading{background: #fff;float: left;}
 
 .comparebutton a{display: inline;width: 100px; float: right;margin-right: 20px}
 .comparebutton .text{margin-left: 20px;margin-top:inherit;font-size:16px; font-weight:bold;float: left;}

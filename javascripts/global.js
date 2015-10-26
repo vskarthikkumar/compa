@@ -5137,21 +5137,35 @@ var selected_card = [];
 
 $( "body").on("click","#mobile_compare" , function(e) {
     displayCompareCards();  
-var comparebuttonhtml=$('.comparebutton').html(); 
+
  
     var cardItems=$('.fixedheading').find(".span3").length; 
-    var title='<div class="row-fluid fixedheading">'+$('.fixedheading').html()+'</div>'; 
-     $(window).on("scroll",function(){
- nav =  $('.comparebutton'); 
- if ($(window).scrollTop() >= 600) {  
+   
+ $(window).on("scroll",function(){
+ nav =  $('.comparebutton');     
+
+   var title=$('.fixedheading').html(); 
+ 
+//$('.comparecards .fixedheading').show();
+
+//$('.comparebutton').html('<div class="row-fluid fixedheading"></div>');
+
+
+ if ($(window).scrollTop() >= 600) { 
+    var comparebuttonhtml='<div class="span12 comparebutton_count">'+$('.comparebutton_count').html()+'</div>'; 
     if($('.comparebutton').find($('.fixedheading')).length<cardItems)
-    { $('.comparebutton').html("");$('.comparebutton').append(comparebuttonhtml).append(title);$('.comparecards .fixedheading').html("");}
+    { 
+
+$('.comparebutton').html(comparebuttonhtml+'<div class="row-fluid fixedheading">'+$('.comparecards .fixedheading').html()+'</div>');
+
+
+$('.comparecards .fixedheading').hide();}
 
        $(nav).addClass('fixed'); 
     }
     else {  
 
-          $('.comparebutton').find(".fixedheading").remove();$('.comparecards .fixedheading').html(title);
+          $('.comparebutton').find(".fixedheading").remove();$('.comparecards .fixedheading').show();
 
        $(nav).removeClass('fixed');
     }
@@ -5160,12 +5174,54 @@ var comparebuttonhtml=$('.comparebutton').html();
 })
     e.preventDefault()
     });
-$( "body").on("click",".cardsBorder" , function() {
-var clickedId = $(this).attr("id");
+
 var mobile=false;
  if(!$(".comparebutton").is(':hidden')) {
 mobile=true;
  }
+
+$( ".comparecards" ).on("click", ".btn-minus", function() {  
+        var clickedId = $(this).children().attr("data-id"); 
+         $('.carousel-inner').find('#'+clickedId).removeClass('card-selected');
+ $('section[id^="cards"] span[id='+clickedId+']').parent().find("i").removeClass().addClass('icon_add-red');
+        $('section[id^="cards"] span[id='+clickedId+']').html(labels.add_card_to_comparison);
+        $( '#comparecards img[id="'+clickedId+'"]').removeClass('card-selected').prev().hide();
+        $('.carousel-inner').find('#'+clickedId).fadeTo(200, 1);
+        var clickedId1=clickedId.toString();
+        //$(this).removeClass('card-selected'); 
+        $(this).removeClass('card-selected').prev().hide();
+        $(this).addClass('cardsBorder');
+        $(this).fadeTo( 200, 1 );   
+         
+        //cardCounting();
+        $('.alert_message').css('display','none'); 
+        $('section[id^="cards"] span[id='+clickedId+']').parent().find("i").removeClass().addClass('icon_add-red');
+        $('section[id^="cards"] span[id='+clickedId+']').html(labels.add_card_to_comparison);
+        console.log(selected_card);
+        console.log($.inArray(clickedId1, selected_card));
+        selected_card.splice($.inArray(clickedId1, selected_card),1);
+         displayCompareCards(); 
+     
+
+        if((mobile==true)&&($(this).id!="mobile_compare"))
+{
+            if ( selected_card.length ==3)
+                $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div>');
+
+            else if ( selected_card.length <2)
+                 $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div>');
+else
+              $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div>');
+
+
+      }
+
+     
+    });
+
+$( "body").on("click",".cardsBorder" , function() {
+var clickedId = $(this).attr("id");
+
 
 
       
@@ -5216,12 +5272,12 @@ mobile=true;
           if((mobile==true)&&($(this).id!="mobile_compare"))
 {
             if ( selected_card.length ==3)
-                $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div>');
+                $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div>');
 
             else if ( selected_card.length <2)
-                 $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div>');
+                 $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div>');
 else
-              $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div>');
+              $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div>');
 
 
       }
@@ -5630,30 +5686,7 @@ tablelayout[z]+='</ul></div>';
 	$('.comparecards .cardItem').removeClass('last-child').last().addClass("last-child");
 }
 
-$( ".comparecards" ).on("click", ".btn-minus", function() {	 
-		var clickedId = $(this).children().attr("data-id");	
-		 $('.carousel-inner').find('#'+clickedId).removeClass('card-selected');
- $('section[id^="cards"] span[id='+clickedId+']').parent().find("i").removeClass().addClass('icon_add-red');
-		$('section[id^="cards"] span[id='+clickedId+']').html(labels.add_card_to_comparison);
-		$( '#comparecards img[id="'+clickedId+'"]').removeClass('card-selected').prev().hide();
-		$('.carousel-inner').find('#'+clickedId).fadeTo(200, 1);
-		var clickedId1=clickedId.toString();
-		//$(this).removeClass('card-selected');	
-		$(this).removeClass('card-selected').prev().hide();
-		$(this).addClass('cardsBorder');
-		$(this).fadeTo( 200, 1 );	
-		 
-		//cardCounting();
-		$('.alert_message').css('display','none'); 
-		$('section[id^="cards"] span[id='+clickedId+']').parent().find("i").removeClass().addClass('icon_add-red');
-		$('section[id^="cards"] span[id='+clickedId+']').html(labels.add_card_to_comparison);
-		console.log(selected_card);
-		console.log($.inArray(clickedId1, selected_card));
-		selected_card.splice($.inArray(clickedId1, selected_card),1);
-		 displayCompareCards();	
-	 
-	 
-	});
+
 	
 	$(".comparison-flyout .hide-switch a").on("click", function() { 
 	  $(".comparison-flyout").flyInorOut();
