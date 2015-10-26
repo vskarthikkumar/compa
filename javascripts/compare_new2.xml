@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+<labels>
+	<label id="label_1"><![CDATA[Add this Card to comparison]]></label>
+	<label id="label_2"><![CDATA[More Details]]></label>
+	<label id="label_3"><![CDATA[Apply via iBanking]]></label>
+	<label id="add_card_to_comparison">
+            <text lang="en">Add this Card to comparison</text>
+        </label>
+        <label id="more_details">
+            <text lang="en">More Details</text>
+        </label>
+        <label id="apply_ibanking">
+            <text lang="en">Apply via iBanking</text>
+        </label>
+        <label id="apply">
+            <text lang="en">Apply now</text>
+        </label>
+		<label id="remove">FDBS 
+            <text lang="en">Remove</text>
+        </label>
+		<label id="find_a_card">
+            <text lang="en">Find a card that's best for</text>
+        </label>
+		<label id="everyone">
+			 <text lang="en">Everyone</text>
+        </label>		
+        <label id="find_out_more">
+             <text lang="en">Find out more</text>
+        </label>
+        <label id="comparison_header">
+             <text lang="en">Add cards for comparison</text>
+        </label>
+		<label id="hide_switch">
+			 <text lang="en">Hide</text>
+        </label>
+        <label id="comparison_table_header">
+             <text lang="en">Compare Cards</text>
+        </label>
+        <label id="no_cards_added_warning">
+             <text lang="en">You have no Cards selected. Please choose from the carousel above the Cards you want to compare.</text>
+        </label>
+        <label id="cards_limit_warning">
+             <text lang="en">You can add only 3 cards to compare.</text>
+		</label>
+        <label id="add_more_cards">
+             <text lang="en">Add more cards to compare</text>
+        </label>
+        <label id="card_added">
+             <text lang="en">Card Added</text>
+        </label>
+		
+</labels>
+<categories>
+	<category id="all"><![CDATA[All]]></category> 
+	<category id="rewards"><![CDATA[Rewards]]></category> 
+	<category id="rebates"><![CDATA[Rebates]]></category> 
+	<category id="miles"><![CDATA[Miles]]></category> 
+	<category id="student"><![CDATA[Student]]></category>
+</categories>
+<comparelabels>
+	<sections>
+		<section id="section_1">
+			<mainheader><![CDATA[Name]]></mainheader>
+		</section>
+		<section id="section_2">
+			<mainheader><![CDATA[Best1 Best]]></mainheader>
+			<subheaders>
+				<subheader  id="section_2_1">
+					<header bold="true"><![CDATA[Card Type1]]></header>
+					<desc><![CDATA[<ul> <li> Special airline fares</li>
+<li>Complimentary hotel nights</li>
+<li>Up to 15% off car rentals</li></ul> ]]></desc>
+				</subheader>
+				<subheader  id="section_2_2">
+					<header bold="false"><![CDATA[Card Type2]]></header>
+					<desc><![CDATA[Card Type desc]]></desc>
+				</subheader>
+				
+				 <subheader  id="section_2_3">
+					<header bold="false"><![CDATA[Card Type3]]></header>
+					<desc><![CDATA[Card Type desc]]></desc>
+				</subheader>
+				<subheader  id="section_2_4">
+					<header bold="false"><![CDATA[Card Type4]]></header>
+					<desc><![CDATA[Card Type desc]]></desc>
+				</subheader>
+			</subheaders>
+		</section>
+		<section id="section_3">
+			<mainheader><![CDATA[Perks]]></mainheader>
+			<subheaders>
+				<subheader  id="section_3_1">
+					<header bold="true"><![CDATA[Card Type]]></header>
+					<desc><![CDATA[Card Type]]></desc>
+				</subheader>
+				<subheader  id="section_3_2">
+					<header bold="false"><![CDATA[Card Type]]></header>
+					<desc><![CDATA[Card Type]]></desc>
+				</subheader>
+				
+				 
+			</subheaders>
+		</section>
+	</sections>
+</comparelabels>
+<comparator>
+<card id="1">
+<categorylist>
+	<category><![CDATA[rebates]]></category>
+</categorylist>
+<section_1>
+	<header><![CDATA[DBS Live Fresh Visa Card1]]></header>
+	<imgurl><![CDATA[images/cards/LiveFresh_FINAL-CARDFACE.png]]></imgurl>
+<cardlink><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></cardlink>
+<applylink><![CDATA[https://www.dbs.com.sg/dbsform/creditcard/live_fresh_dbs_visa_paywave_platinum_card.page]]></applylink>
+</section_1>
+
+<section_2>
+	<header><![CDATA[asdfasdf]]></header>
+	<section_2_1><![CDATA[ ]]></section_2_1>
+	<section_2_2><![CDATA[<ul><li>Get 6% Cashback on your online p</li><li>Get 6% Cashback on your online p</li><li>Get 6% Cashback on your online p</li></ul>]]></section_2_2>
+	<section_2_3><![CDATA[S3$45,000]]></section_2_3>
+	<section_2_4><![CDATA[54 Years]]></section_2_4>
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend16]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_2>
+
+<section_3>
+	<header><![CDATA[]]></header>
+	<section_3_1><![CDATA[ dsfa]]></section_3_1>
+	<section_3_2><![CDATA[safd ]]></section_3_2>
+	 
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend17.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_3>
+
+
+</card>
+<card id="2">
+<categorylist>
+	<category><![CDATA[rewards]]></category>
+</categorylist>
+<section_1>
+	<header><![CDATA[DBS Live Fresh Visa Card2]]></header>
+	<imgurl><![CDATA[images/cards/LiveFresh_FINAL-CARDFACE.png]]></imgurl>
+<cardlink><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></cardlink>
+<applylink><![CDATA[https://www.dbs.com.sg/dbsform/creditcard/live_fresh_dbs_visa_paywave_platinum_card.page]]></applylink>
+</section_1>
+
+<section_2>
+	<header><![CDATA[]]></header>
+	<section_2_1><![CDATA[ asdf]]></section_2_1>
+	<section_2_2><![CDATA[S2$30,000]]></section_2_2>
+	<section_2_3><![CDATA[S3$45,000]]></section_2_3>
+	<section_2_4><![CDATA[54 Years]]></section_2_4>
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend18.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_2>
+</card>
+<card id="3">
+<categorylist>
+	<category><![CDATA[rewards]]></category>
+</categorylist>
+<section_1>
+	<header><![CDATA[DBS Live Fresh Visa Card3]]></header>
+	<imgurl><![CDATA[images/cards/LiveFresh_FINAL-CARDFACE.png]]></imgurl>
+<cardlink><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></cardlink>
+<applylink><![CDATA[https://www.dbs.com.sg/dbsform/creditcard/live_fresh_dbs_visa_paywave_platinum_card.page]]></applylink>
+</section_1>
+
+<section_2>
+	<header><![CDATA[]]></header>
+	<section_2_1><![CDATA[ ]]></section_2_1>
+	<section_2_2><![CDATA[S2$30,000]]></section_2_2>
+	<section_2_3><![CDATA[S3$45,000]]></section_2_3>
+	<section_2_4><![CDATA[54 Years]]></section_2_4>
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend19.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_2>
+
+
+
+<section_3>
+	<header><![CDATA[asdf]]></header>
+	<section_3_1><![CDATA[]]></section_3_1>
+	<section_3_2><![CDATA[S2$30,000]]></section_3_2>
+	 
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend20.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_3>
+
+
+</card>
+
+<card id="4">
+<categorylist>
+	<category><![CDATA[rewards]]></category>
+</categorylist>
+<section_1>
+	<header><![CDATA[DBS Live Fresh Visa Card3]]></header>
+	<imgurl><![CDATA[images/cards/LiveFresh_FINAL-CARDFACE.png]]></imgurl>
+<cardlink><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></cardlink>
+<applylink><![CDATA[https://www.dbs.com.sg/dbsform/creditcard/live_fresh_dbs_visa_paywave_platinum_card.page]]></applylink>
+</section_1>
+
+<section_2>
+	<header><![CDATA[]]></header>
+	<section_2_1><![CDATA[ ]]></section_2_1>
+	<section_2_2><![CDATA[S2$30,000]]></section_2_2>
+	<section_2_3><![CDATA[S3$45,000]]></section_2_3>
+	<section_2_4><![CDATA[54 Years]]></section_2_4>
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend19.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_2>
+
+
+
+<section_3>
+	<header><![CDATA[asdf]]></header>
+	<section_3_1><![CDATA[]]></section_3_1>
+	<section_3_2><![CDATA[S2$30,000]]></section_3_2>
+	 
+	<keypoints>
+	<item><![CDATA[Get 6% Cashback on your online purchases and 3X DBS Points on your online, travel, overseas and contactless spend20.]]></item>
+	</keypoints>
+	<moredetails><![CDATA[/personal/cards/credit-cards/live-fresh-dbs-visa-paywave-platinum-card]]></moredetails>
+</section_3>
+
+
+</card>
+
+  
+
+</comparator>
+</xml>
