@@ -4834,7 +4834,7 @@ $.ajax({
 			//$('.heroBannerText').html(labels.find_a_card);
 			//$('.displayTitle').html($('ul.cardMenu li:first').text() + "<i class='arrow-down'></i>");
 			//$('.cardDetails a').html(labels.find_out_more + "<span class='icn-arrow-red launch'></span>");
-			$('section[data-flyout="compare"] span.seo-h2-section-title').html(labels.comparison_header);
+			$('span.seo-h2-section-title').html(labels.comparison_header);
 			$('.hide-switch-label').html(labels.hide_switch);
 			$('.comparecards span.seo-h2-section-title').html(labels.comparison_table_header);
 			$('.comparecards .notice span.h3-mimic').html(labels.no_cards_added_warning);
@@ -5136,14 +5136,19 @@ $('#comparenav').on('click', "li:not(.active)", function() { console.log('abc383
 var selected_card = [];
 $( "body").on("click","#mobile_compare" , function(e) {
     displayCompareCards();  
-    
+    var title='<div class="row-fluid fixedheading">'+$('.fixedheading').html()+'</div>'; 
      $(window).on("scroll",function(){
- nav =  $('.fixedheading'); 
- if ($(window).scrollTop() >= 600) {
-   
+ nav =  $('.comparebutton'); 
+ if ($(window).scrollTop() >= 600) { 
+    if($('.comparebutton').find($('.fixedheading')).length==0)
+    { $('.comparebutton').append(title);$('.comparecards .fixedheading').html("");}
+
        $(nav).addClass('fixed'); 
     }
     else {  
+
+          $('.comparebutton').find(".fixedheading").remove();$('.comparecards .fixedheading').html(title);
+
        $(nav).removeClass('fixed');
     }
 
@@ -5154,7 +5159,7 @@ $( "body").on("click","#mobile_compare" , function(e) {
 $( "body").on("click",".cardsBorder" , function() {
 var clickedId = $(this).attr("id");
 var mobile=false;
- if(!$(".seo-h2-section-title1").is(':hidden')) {
+ if(!$(".comparebutton").is(':hidden')) {
 mobile=true;
  }
 
@@ -5207,12 +5212,12 @@ mobile=true;
           if((mobile==true)&&($(this).id!="mobile_compare"))
 {
             if ( selected_card.length ==3)
-                $('.seo-h2-section-title1').html('Selected: '+selected_card.length +' (Max)<a href="" id="mobile_compare" class="btn btn-primary">Compare</a>');
+                $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div>');
 
             else if ( selected_card.length <2)
-                 $('.seo-h2-section-title1').html('Selected: '+selected_card.length +' <a   class="btn btn-primary  disabled">Compare</a>');
+                 $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div>');
 else
-              $('.seo-h2-section-title1').html("Selected: "+selected_card.length +' <a href="" id="mobile_compare" class="btn btn-primary">Compare</a>');
+              $('.comparebutton').html('<div class="row-fluid"><div class="span12"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div>');
 
 
       }
