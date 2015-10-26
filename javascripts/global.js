@@ -4785,8 +4785,8 @@ $.ajax({
     success: function (xml) { var itemList='',cardsArr=[];
         var cardCarouselTemplate = 
 			[
-			'<div class="span3 positionrelative" data-category="{{categories}}">', '<div class="card_tick"><img src="images/tick_bullet_red.png" /></div>',
-			' <img id="{{id}}" src="{{imgurl}}" class="cursor-hand cardsBorder">',
+			'<div class="span3 positionrelative" data-category="{{categories}}">', '<div class="cardholder "><div class="card_tick"><img src="images/tick_bullet_red.png" /></div>',
+			' <img id="{{id}}" src="{{imgurl}} " class="cursor-hand cardsBorder"></div>',
 			' <div class="addCard" >',
 			  '    <div class="h3-mimic">{{name}}</div>',  
 			' </div>',  
