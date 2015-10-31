@@ -4806,10 +4806,11 @@ $.ajax({
             cardContainerIndex = -1, 
             cardPartial = ''; 
 			$(xml).find('label').each(function() { 
-				labelId = $(this).attr('id');
-				labelText = $(this).find('text[lang="'+language+'"]').text();
+				labelId = $(this).attr('id'); 
+				labelText = $(this).text();
 				labels[labelId] = labelText;
 			});
+			console.dir(labels);
 			$('section[data-flyout="compare"] span.seo-h2-section-title').html(labels.comparison_header);
 			$('.hide-switch-label').html(labels.hide_switch);
 			$('.comparecards span.seo-h2-section-title').html(labels.comparison_table_header);
@@ -5206,12 +5207,12 @@ $( ".comparecards" ).on("click", ".btn-minus", function() {
         if((mobile==true)&&($(this).id!="mobile_compare"))
 {
             if ( selected_card.length ==3)
-                $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div>');
+                $('.comparebutton').html('<section><div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' (Max)</span><a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></section>');
 
             else if ( selected_card.length <2)
-                 $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div>');
+                 $('.comparebutton').html('<section><div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +' </span><a   class="btn btn-primary  disabled">Compare</a></p></div></div></section>');
 else
-              $('.comparebutton').html('<div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div>');
+              $('.comparebutton').html('<section><div class="row-fluid"><div class="span12 comparebutton_count"><p><span class="text">Selected: '+selected_card.length +'</span> <a href="" id="mobile_compare" class="btn btn-primary">Compare</a></p></div></div></section>');
 
 
       }
@@ -5327,7 +5328,7 @@ function getCardDetail(clickedObj,callFrm){
 					  	var table_data_label="";
 					
 					
-					table_data_label  = '<div class="span3 heading-compare hidden-phone"><div class="creditcard_name">'+temp.header.heading+'</div></div>';
+					table_data_label  = '<div class="span3 first heading-compare hidden-phone"><div class="creditcard_name">'+temp.header.heading+'</div></div>';
 						 if(typeof(temp.header.val[zz].card_id)!="undefined"){
 						 //	console.log($.inArray(parseInt(temp.header.val[zz].card_id), selected_card));
 						 var position = $.inArray(temp.header.val[zz].card_id, selected_card);
@@ -5338,10 +5339,9 @@ function getCardDetail(clickedObj,callFrm){
 table_data_heading_hiddenphone[position] = ' <div id="'+temp.header.val[zz].card_id+'" class="span3 cardItem subheading-compare" ><div class="col2header hidden-phone"><h3>'+temp.header.val[zz].text+'</h3></div></div>';							
 table_data_image[position] =	' <div class="span3 subheading-compare" ><div style=" padding-bottom:10px;"><img src="'+temp.header.val[zz].imgurl+'"/></div></div>';					
 table_data_heading_visiblephone[position] = ' <div id="'+temp.header.val[zz].card_id+'" class="span3 cardItem subheading-compare  visible-phone " ><div class="col2header "><h3>'+temp.header.val[zz].text+'</h3></div></div>';                            
-table_data_applylink[position] =   ' <div class="span3 subheading-compare" ><div class="card-compare-apply"><div class="col2header"><a href="'+temp.header.val[zz].applylink+'" class="btn btn-primary" onclick="cc_applynow(\''+temp.header.val[zz].text+'\')">Apply now</a></div></div></div>';
-table_data_applyibanking[position] = 			' <div class="span3 subheading-compare" ><a href="http://www.dbs.com.sg/personal/ib-anchor/redirect-cardstp.html" class="launch ui-link" onclick="cc_applyibanking(\''+temp.header.val[zz].text+'\')">Apply via iBanking<span class="icn-arrow-red launch"></span></a></div>';
-table_data_remove[position] =            ' <div class="span3 subheading-compare" ><div class="btn-minus cursor-hand btn-remove card-compare-remove"> <i data-id="'+temp.header.val[zz].card_id+'" class"icon_cross-gray"></i>Remove</div></div>';
-
+table_data_applylink[position] =   ' <div class="span3 subheading-compare" ><div class="card-compare-apply"><div class="col2header"><a href="'+temp.header.val[zz].applylink+'" class="btn btn-primary" onclick="cc_applynow(\''+temp.header.val[zz].text+'\')">'+labels.apply+'</a><div class="btn-minus cursor-hand btn-remove card-compare-remove"> <i data-id="'+temp.header.val[zz].card_id+'" class="icon_cross-gray"></i>'+labels.remove+'</div></div></div></div>';
+table_data_applyibanking[position] = 			' <div class="span3 subheading-compare" ><a href="'+temp.header.val[zz].cardlink+'" class="launch ui-link" onclick="cc_applyibanking(\''+temp.header.val[zz].text+'\')">'+labels.apply_ibanking+'<span class="icn-arrow-red launch"></span></a></div>';
+table_data_remove[position]        =   ' <div class="span3 subheading-compare" ><div class="card-compare-apply"><div class="col2header"><a href="'+temp.header.val[zz].applylink+'" class="btn btn-primary" onclick="cc_applynow(\''+temp.header.val[zz].text+'\')">'+labels.apply+'</a></div></div></div>';
                              
 												 
 											 
@@ -5412,7 +5412,7 @@ if(typeof(table_data_remove[pos])=="undefined"||(table_data_remove[pos]==""))
                       console.log("a->"+tempff_heading_visiblephone);
                       console.log("a->"+tempff_image);
                            
-					 table_data ='<div class="row-fluid">'+table_data_label+tempff_heading_hiddenphone+tempff_image+tempff_remove+tempff_heading_visiblephone+tempff_applylink+tempff_applyibanking;
+					 table_data ='<div class="row-fluid">'+table_data_label+tempff_heading_hiddenphone+tempff_image +tempff_heading_visiblephone+tempff_applylink+tempff_applyibanking;
 }
 					table_data +='<div class="dottedline insertcard2"></div>';
 //console.log(table_data);
@@ -5445,10 +5445,10 @@ for (var zz=0;zz<temp.header.val.length;zz++) {
 					 
 
  //------------------------other sections heading label
-if(present_count1>0)
+//if(present_count1>0)
 					{
 var tempff="";
-					 subheading ='<div class="row-fluid"><div class="span3 heading-compare  creditcard_name min-height40"><div class="" >'+temp.header.heading+'</div></div>';
+					 subheading ='<div class="row-fluid sections"><div class="span3 heading-compare    min-height40"><div class="creditcard_name min-height40"><div class="" >'+temp.header.heading+'</div></div></div>';
 						for(var pos=0;pos<temp_heading.length;pos++)
 						{
 							
@@ -5464,7 +5464,7 @@ var tempff="";
  					
 					 var tablelayout="";
 					
-					 var tablelayout1 ='<div class="row-fluid">';	
+					 var tablelayout1 ='<div class="row-fluid sections">';	
 					 var temp1="";
 					for (var z=0;z<temp.subheaders.length;z++) {
 							 var tablelayout=[];
@@ -5497,9 +5497,9 @@ var position =$.inArray(temp.subheaders[z].val[y].card_id, selected_card);
 						//------------------------other sections subheaders label	
 							if(data_present){
 						if(temp.subheaders[z].bold=="true")
-								heading += '<div class="row-fluid"><div class="span3 heading-compare" ><div class="subheading-compare marginLeft" ><b>'+temp.subheaders[z].header+'</b>';
+								heading += '<div class="row-fluid sections"><div class="span3 heading-compare" ><div class="subheading-compare marginLeft" ><b>'+temp.subheaders[z].header+'</b>';
 								else 
-								heading += '<div class="row-fluid"><div class="span3 heading-compare"><div class="subheading-compare marginLeft">'+temp.subheaders[z].header+'';
+								heading += '<div class="row-fluid sections"><div class="span3 heading-compare"><div class="subheading-compare marginLeft">'+temp.subheaders[z].header+'';
 								 
 								 
 								heading += '<br/>'+temp.subheaders[z].desc+'</div></div>';
@@ -5535,7 +5535,7 @@ var tempff="",present_count2=0;
 						if(position!= -1)
 						{
 							 
-							 moredetails[position]= '<div class="span3"><a href="'+temp.moredetails[z].val+'" class="launch nomargin ui-link">More Details <span class="icn-arrow-red launch"></span></a></div>';
+							 moredetails[position]= '<div class="span3"><a href="'+temp.moredetails[z].val+'" class="launch nomargin ui-link">'+labels.more_details+'<span class="icn-arrow-red launch"></span></a></div>';
 							present_count2++;
 							 
 												 
@@ -5565,7 +5565,7 @@ var tempff="";
 tablelayout[z]='<div class="subheading-compare"><ul>';
  }
 					var tempff1="";
-					 var tablelayout1 ='<div class="row-fluid">';	
+					 var tablelayout1 ='<div class="row-fluid sections">';	
 					 
 					for (var z=0;z<temp.items.val.length;z++) {
 							
@@ -5622,10 +5622,10 @@ tablelayout[z]+='</ul></div>';
 					 
 
 
-							table_data += temp1+ '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid"><div class="span3 heading-compare"></div>'+tempff+'</div>' ;
+							table_data += temp1+ '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff+'</div>' ;
 							
-
-
+if(i!=sections.length-1)
+  table_data +='<div class="dottedline insertcard2"></div>';
 
                             if(temp1!=""){
 
@@ -5638,9 +5638,9 @@ tablelayout[z]+='</ul></div>';
 
 
 table_data +='<div class="row-fluid visible-phone">&nbsp;</div>';
-					table_data +='<div class="row-fluid visible-phone">'+tempff_applylink+'</div>';
-    table_data +='<div class="row-fluid visible-phone">'+tempff_applyibanking+'</div>';   
-    table_data +='<div class="dottedline insertcard2"></div>';
+					table_data +='<div class="row-fluid sections">'+tempff_remove+'</div>';
+    table_data +='<div class="row-fluid sections">'+tempff_applyibanking+'</div><div class="dottedline insertcard2"></div>';   
+  
 						/*for (var z=0;z<temp.moredetails.length;z++) {
 						 
 					 if(typeof(temp.moredetails[z].card_id)!="undefined"){
@@ -6491,6 +6491,9 @@ if ($('.hidden-phone').is(":visible")) {
 } 
  
 $(document).ready(function() {
+
+ 
+   
 pageLevelComponents.customDropDown();
 annoucement_call();
 notificationajaxcall();
@@ -6660,7 +6663,7 @@ pageLevelComponents.creditcardHomeBanner();
 
  if ($(".secondtabactivevariant").length > 0)
     {
-          pageLevelComponents.pageHero();
+         // pageLevelComponents.pageHero();
     }
 if ($(".dropdown-cards").length > 0){
 pageLevelComponents.cardsMenu();
@@ -6769,7 +6772,11 @@ $('.megamenu').mouseover(function(){$('.loansMenu').blur();$('.loansSubMenu').bl
 			}
 		};
 
-		swipeFunc.init();
+		 swipeFunc.init();
+		
+		
+ 
+ 
 	}
 /*
  setTimeout(function () {
