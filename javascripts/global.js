@@ -4885,12 +4885,16 @@ $.ajax({
 				sections[i].header = {};
 				sections[i].header.heading = $(this).find('mainheader').text();
 				sections[i].header.val=[];
-				sections[i].items={};
-				sections[i].items.val=[];
+				
 				sections[i].moredetails=[];
 				sections[i].cardlink={};
 				sections[i].applylink={};
 				sections[i].imgurl={};
+
+                sections[i].items={};
+              sections[i].items.val=[];
+            
+
 			});
 			 //console.dir(cards);
 			  
@@ -4974,18 +4978,21 @@ $.ajax({
 						    sections[i].subheaders[y].val[no_of_cards].text=$(this).find(sections[i].subheaders[y].id).text();}
 						   
 					}
-					
+				
+     sections[i].items.val[no_of_cards]={};
 					 items = $(this).find(sections[i].id).find('item');
 					 	console.log(items);
-					 	 sections[i].items.val[no_of_cards]={};
+					 	sections[i].items.val[no_of_cards].card_id=id;
+                            sections[i].items.val[no_of_cards].items=[];
 					$(items).each(function(g) { console.log("g->"+g);
-						
+                             
+						 
 
 						 
 						 if($.trim($(this).text())!=""){
 
-					sections[i].items.val[no_of_cards].card_id=id;
-					sections[i].items.val[no_of_cards].item=$(this).text();
+					
+					sections[i].items.val[no_of_cards].items[g]=$(this).text();
 					}
 					});
 					
@@ -5559,6 +5566,12 @@ var tempff="";
 					 //table_data +='<div class="row-fluid"><div class="span3"></div>'+tempff+'</div>';
 }
 
+
+console.log("dfdfdf");
+console.dir(temp);
+
+   // sections[i].items.val[no_of_cards][g].card_id=id;
+
 //------------------------other sections keypoints
  var tablelayout=[];
  for (var z=0;z<selected_card.length;z++) {
@@ -5566,11 +5579,11 @@ tablelayout[z]='<div class="subheading-compare"><ul>';
  }
 					var tempff1="";
 					 var tablelayout1 ='<div class="row-fluid sections">';	
-					 
+					   var data_present=false;
 					for (var z=0;z<temp.items.val.length;z++) {
 							
 							  var heading="";
-							  var data_present=false;
+							
 							  //console.log("z->"+z);
 						//console.log(temp.items.val[z]);
 						 
@@ -5581,19 +5594,21 @@ var position =$.inArray(temp.items.val[z].card_id, selected_card);
 							if(position!= -1)
 							{  
 															
-								
+								    for (var zz=0;zz<temp.items.val[z].items.length;zz++) {
 								
 								data_present=true;
 								 
-								 tablelayout[position] += '<li>'+temp.items.val[z].item+'</li>';
+								 tablelayout[position] += '<li>'+temp.items.val[z].items[zz]+'</li>';
 // console.log( tablelayout[position]);
-								 
+								 }
 							}
 							 
 							}}
 				 for (var z=0;z<selected_card.length;z++) {
 tablelayout[z]+='</ul></div>';
  }	 
+ console.dir(tablelayout);console.log(data_present);
+
 							if(data_present){
 						 
 
@@ -5607,9 +5622,9 @@ tablelayout[z]+='</ul></div>';
 							else
 								tempff1+='<div class="span3">'+tablelayout[pos]+'</div>';
 
-							//console.log("t->"+tempff1);
+							
 						}
-
+ console.log("t->"+tempff1);
 
 
 									 
