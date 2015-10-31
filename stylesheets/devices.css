@@ -26118,9 +26118,10 @@ font-family: "Frutiger",Arial,sans-serif;
 .comparecards .cardcount{font-size:14px; color:#666363; }
 .comparecards .row-fluid{padding:0; margin:0; }
 .comparecards .notice{zoom:1; filter:alpha(opacity=20); opacity:0.2; }
-.card-compare-apply{float:left; }
- 
- 
+.card-compare-apply{float:left;position: relative; }
+ .card-compare-apply a{margin-top: 30px !important; } 
+  .card-compare-apply  .btn-minus{position: absolute;
+top: 0;}
 .comparecards .notice-flyouthidden{display:none; vertical-align:bottom; position:relative; }
 .comparecards .notice-flyouthidden .launch{vertical-align:top; }
 .comparecards .notice-flyouthidden i{margin-right:20px; }
@@ -26186,7 +26187,7 @@ font-family: "Frutiger",Arial,sans-serif;
 .card_tick{position:absolute; top:10px; display:none; right:5%; }
 .card_tick img{max-width:22px !important; border:none !important; }
 .heading-compare{width:100% !important; }
-.card-compare-apply a{font-size: 12px;padding: 2px !important;margin:0 !important;width: 70px;white-space: normal;}
+.card-compare-apply a{font-size: 12px;padding: 2px !important; width: 70px;white-space: normal;}
 
 p.text-center{text-align:center; }
 .cursor-hand{cursor:pointer; }
@@ -26226,9 +26227,13 @@ p.text-center{text-align:center; }
  #comparenav.tabbed-nav li{margin-left: 0;}
  
 .comparecards [class*="span"], .comparecards .row-fluid [class*="span"]{float:left;width: 30.40426%;margin-left:2.12766%}
- 
- 
- 
+ .comparecards ul{margin-top:5px;margin-bottom: 5px;}
+ .comparecards .min-height40{min-height:initial !important;}
+.comparecards .cardItem h3{min-height:initial !important;}
+.comparecards .col2header{min-height:initial !important;float:left;}
+ .comparecards .span3.subheading-compare,.span3.heading-compare{min-height:1px;}
+.comparecards .creditcard_name {margin-top: 0;margin-bottom: 0}
+
 
 .banner-wrapper {position: relative;}
 .banner-wrapper:after {

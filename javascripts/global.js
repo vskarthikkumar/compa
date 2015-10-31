@@ -5452,21 +5452,7 @@ for (var zz=0;zz<temp.header.val.length;zz++) {
 					 
 
  //------------------------other sections heading label
-//if(present_count1>0)
-					{
-var tempff="";
-					 subheading ='<div class="row-fluid sections"><div class="span3 heading-compare    min-height40"><div class="creditcard_name min-height40"><div class="" >'+temp.header.heading+'</div></div></div>';
-						for(var pos=0;pos<temp_heading.length;pos++)
-						{
-							
-							if(typeof(temp_heading[pos])=="undefined"||(temp_heading[pos]==""))
-								tempff+='<div class="span3"></div>';
-							else
-								tempff+=temp_heading[pos];
-						}
 
-					 table_data +=subheading+tempff+'</div>';
-}
 
  					
 					 var tablelayout="";
@@ -5476,7 +5462,7 @@ var tempff="";
 					for (var z=0;z<temp.subheaders.length;z++) {
 							 var tablelayout=[];
 							  var heading="";
-							  var data_present=false;
+							  var data_present2=false;
 					 	
 //------------------------other sections subheaders value						
 							for (var y=0;y<temp.subheaders[z].val.length;y++) {
@@ -5491,7 +5477,7 @@ var position =$.inArray(temp.subheaders[z].val[y].card_id, selected_card);
 															
 								
 								
-								data_present=true;
+								data_present2=true;
 								 
 								 tablelayout[position]= '<div class="span3 subheading-compare "><div class="" >'+temp.subheaders[z].val[y].text+'</div></div>';
  
@@ -5502,7 +5488,7 @@ var position =$.inArray(temp.subheaders[z].val[y].card_id, selected_card);
 						}
 						
 						//------------------------other sections subheaders label	
-							if(data_present){
+							if(data_present2){
 						if(temp.subheaders[z].bold=="true")
 								heading += '<div class="row-fluid sections"><div class="span3 heading-compare" ><div class="subheading-compare marginLeft" ><b>'+temp.subheaders[z].header+'</b>';
 								else 
@@ -5533,7 +5519,7 @@ var tempff="";
 						}
 //------------------------other sections moredetails
 						var moredetails=[];
-var tempff="",present_count2=0;
+var tempff3="",present_count3=0;
 
 						for (var z=0;z<temp.moredetails.length;z++) {
 						 
@@ -5543,24 +5529,24 @@ var tempff="",present_count2=0;
 						{
 							 
 							 moredetails[position]= '<div class="span3"><a href="'+temp.moredetails[z].val+'" class="launch nomargin ui-link">'+labels.more_details+'<span class="icn-arrow-red launch"></span></a></div>';
-							present_count2++;
+							present_count3++;
 							 
 												 
 							
 							 
 						}
 						}}
-						if(present_count2>0)
+						if(present_count3>0)
 					{
-var tempff="";
+var tempff3="";
 					 
 						for(var pos=0;pos<moredetails.length;pos++)
 						{
 							
 							if(typeof(moredetails[pos])=="undefined"||(moredetails[pos]==""))
-								tempff+='<div class="span3"></div>';
+								tempff3+='<div class="span3"></div>';
 							else
-								tempff+=moredetails[pos];
+								tempff3+=moredetails[pos];
 						}
 
 					 //table_data +='<div class="row-fluid"><div class="span3"></div>'+tempff+'</div>';
@@ -5579,7 +5565,7 @@ tablelayout[z]='<div class="subheading-compare"><ul>';
  }
 					var tempff1="";
 					 var tablelayout1 ='<div class="row-fluid sections">';	
-					   var data_present=false;
+					   var data_present4=false;
 					for (var z=0;z<temp.items.val.length;z++) {
 							
 							  var heading="";
@@ -5596,7 +5582,7 @@ var position =$.inArray(temp.items.val[z].card_id, selected_card);
 															
 								    for (var zz=0;zz<temp.items.val[z].items.length;zz++) {
 								
-								data_present=true;
+								data_present4=true;
 								 
 								 tablelayout[position] += '<li>'+temp.items.val[z].items[zz]+'</li>';
 // console.log( tablelayout[position]);
@@ -5607,9 +5593,9 @@ var position =$.inArray(temp.items.val[z].card_id, selected_card);
 				 for (var z=0;z<selected_card.length;z++) {
 tablelayout[z]+='</ul></div>';
  }	 
- console.dir(tablelayout);console.log(data_present);
+ console.dir(tablelayout); 
 
-							if(data_present){
+							if(data_present4){
 						 
 
 
@@ -5632,12 +5618,26 @@ tablelayout[z]+='</ul></div>';
 							
 									
 						
+ if((present_count1>0)||(data_present2)||(present_count3>0)||(data_present4))
+                    {   
+var tempff="";
+                     subheading ='<div class="row-fluid sections"><div class="span3 heading-compare    min-height40"><div class="creditcard_name min-height40"><div class="" >'+temp.header.heading+'</div></div></div>';
+                        for(var pos=0;pos<temp_heading.length;pos++)
+                        {
+                            
+                            if(typeof(temp_heading[pos])=="undefined"||(temp_heading[pos]==""))
+                                tempff+='<div class="span3"></div>';
+                            else
+                                tempff+=temp_heading[pos];
+                        }
 
+                     table_data +=subheading+tempff+'</div>';
+}
 
 					 
 
 
-							table_data += temp1+ '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff+'</div>' ;
+							table_data += temp1+ '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff1+'</div>' + '<div class="row-fluid sections"><div class="span3 heading-compare"></div>'+tempff3+'</div>' ;
 							
 if(i!=sections.length-1)
   table_data +='<div class="dottedline insertcard2"></div>';
